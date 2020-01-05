@@ -27,8 +27,7 @@ class SettingsViewController: UIViewController {
         // Do any additional setup after loading the view.
         topnavItem.rightBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .done, target: self, action: #selector(signOut))
         guard let currUser = Auth.auth().currentUser?.uid else {return}
-        print(currUser)
-        print(getInfo(currUser: currUser))
+        getInfo(currUser: currUser)
         setUpView()
     }
     
@@ -47,7 +46,7 @@ class SettingsViewController: UIViewController {
     }
     
     @objc fileprivate func signOut() {
-        let signoutsheet = UIAlertController(title: "Confirm", message: "Are you sure you want to sign Out", preferredStyle: .actionSheet)
+        let signoutsheet = UIAlertController(title: "Confirm", message: "Are you sure you want to Sign Out", preferredStyle: .actionSheet)
         signoutsheet.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (action) in
             do {
                 try Auth.auth().signOut()
@@ -69,7 +68,6 @@ class SettingsViewController: UIViewController {
                 if document != nil && document!.exists {
                     let userInfo = document!.data()
                     self.topnavItem.title = "Profile"
-                    print(userInfo!)
                     self.usernameTxt.text = (userInfo!["username"] as! String)
                     self.fullnameTxt.text = (userInfo!["fullname"] as! String)
                     self.dietTxt.text = (userInfo!["dietarypref"] as! String)

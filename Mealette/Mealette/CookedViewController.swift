@@ -12,6 +12,8 @@ class CookedViewController: UIViewController, UITableViewDataSource, UITableView
     let currUser = Auth.auth().currentUser?.uid
     let cellId = "cell"
     let db = Firestore.firestore()
+    let date = Date()
+    let cal = Calendar.current
     var cookedData = [cooked]()
     @IBOutlet var cookedNavItem: UINavigationItem!
     @IBOutlet var foodsTableView: UITableView!
@@ -20,6 +22,7 @@ class CookedViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupView()
+        readCookedData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -28,7 +31,7 @@ class CookedViewController: UIViewController, UITableViewDataSource, UITableView
     
     func setupView() {
         cookedNavItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCooked))
-        readCookedData()
+        cookedNavItem.leftBarButtonItem = UIBarButtonItem(title: "Randomize", style: .done, target: self, action: #selector(randomize))
     }
     
     func readCookedData() {
@@ -41,7 +44,11 @@ class CookedViewController: UIViewController, UITableViewDataSource, UITableView
                 let rec = doc.data()["recipe"] ?? ""
                 let fav = doc.data()["favourite"] ?? false
                 let food = cooked(item: (name as! String), ing: (ing as! String), rec: (rec as! String), f: (fav as! Bool))
-                self.cookedData.append(food)
+                if self.cookedData.contains(food) {
+                    return
+                } else {
+                    self.cookedData.append(food)
+                }
             }
             self.foodsTableView.reloadData()
         } else {
@@ -53,6 +60,39 @@ class CookedViewController: UIViewController, UITableViewDataSource, UITableView
     @objc func addCooked() {
         let addCooked = storyboard?.instantiateViewController(withIdentifier: "addCooked") as! AddCookedViewController
         present(addCooked, animated: true, completion: nil)
+    }
+    
+    @objc func randomize() {
+        let ranIndex = Int.random(in: 0..<self.cookedData.count)
+        let randomized = cookedData[ranIndex]
+        print(randomized.name!)
+        let hour = self.cal.component(.hour, from: self.date)
+        var meal : String!
+        if hour >= 12 && hour <= 16 {
+            meal = "Here's Your Lunch For Today"
+        } else if hour > 16 && hour < 22 {
+            meal = "Here's Your Dinner For Today"
+        } else {
+            meal = "You shouldn't be eating at this hour"
+        }
+        let randName = randomized.name!
+        var randFav : String!
+        if randomized.fav == true {
+            randFav = "Yes"
+        } else {
+            randFav = "No"
+        }
+        let msg = """
+                    Dish Name : \(randName)
+                    Favourite : \(randFav ?? "No")
+                  """
+        let alert = UIAlertController(title: meal, message: msg, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "See Dish Details", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Choose Again", style: .default, handler: { (action) in
+            self.randomize()
+        }))
+        alert.addAction(UIAlertAction(title: "Thank You!", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
