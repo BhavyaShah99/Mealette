@@ -22,6 +22,7 @@ class SingUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet var confpassword: UITextField!
     @IBOutlet var signupbtn: UIButton!
     @IBOutlet var profileImageView: UIImageView!
+    let seebtn = UIButton(type: .system)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,8 @@ class SingUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         profileImageView.isUserInteractionEnabled = true
         profileImageView.layer.cornerRadius = 52.5
         signupbtn.backgroundColor = UIColor(red: 0.0471, green: 0.7569, blue: 0, alpha: 1.0)
+        self.seebtn.setTitle("See", for: .normal)
+        username.rightView = seebtn
     }
     
     @objc func chooseProfileImage() {

@@ -17,6 +17,8 @@ class CookedViewController: UIViewController, UITableViewDataSource, UITableView
     var cookedData = [cooked]()
     @IBOutlet var cookedNavItem: UINavigationItem!
     @IBOutlet var foodsTableView: UITableView!
+    @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet var filterBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +34,16 @@ class CookedViewController: UIViewController, UITableViewDataSource, UITableView
     func setupView() {
         cookedNavItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCooked))
         cookedNavItem.leftBarButtonItem = UIBarButtonItem(title: "Randomize", style: .done, target: self, action: #selector(randomize))
+        let searchbottom = searchBar.bottomAnchor.constraint(equalTo: foodsTableView.topAnchor)
+        let leftconst = searchBar.leftAnchor.constraint(equalTo: view.leftAnchor)
+        let rightconst = searchBar.rightAnchor.constraint(equalTo: filterBtn.leftAnchor)
+        let fleftcont = filterBtn.leftAnchor.constraint(equalTo: searchBar.rightAnchor)
+        let fbottomconst = filterBtn.bottomAnchor.constraint(equalTo: foodsTableView.topAnchor)
+        let frightconst = filterBtn.rightAnchor.constraint(equalTo: view.rightAnchor)
+        NSLayoutConstraint.activate([searchbottom, leftconst, rightconst, fleftcont, fbottomconst, frightconst])
+        view.layoutIfNeeded()
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        filterBtn.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func readCookedData() {

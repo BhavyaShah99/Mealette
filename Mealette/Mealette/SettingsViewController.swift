@@ -78,4 +78,10 @@ class SettingsViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func updatePressed(_ sender: Any) {
+        let prof = self.storyboard?.instantiateViewController(identifier: "settings") as? HomePageViewController
+        present(prof, animated: true, completion: nil)
+    }
+    
 }

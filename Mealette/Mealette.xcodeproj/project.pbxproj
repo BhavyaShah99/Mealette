@@ -11,6 +11,7 @@
 		B6056A2823BBE8B800DF7DC1 /* AddCookedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6056A2723BBE8B800DF7DC1 /* AddCookedViewController.swift */; };
 		B6095A3923BBF5D900782FBB /* UIStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6095A3823BBF5D900782FBB /* UIStyles.swift */; };
 		B6095A3B23BBF97500782FBB /* AddOrderedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6095A3A23BBF97500782FBB /* AddOrderedViewController.swift */; };
+		B62EB76123C2937800AA0C05 /* UpdateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62EB76023C2937800AA0C05 /* UpdateProfileViewController.swift */; };
 		B6DCB4F423B1673700F8EDD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DCB4F323B1673700F8EDD9 /* AppDelegate.swift */; };
 		B6DCB4F623B1673700F8EDD9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DCB4F523B1673700F8EDD9 /* SceneDelegate.swift */; };
 		B6DCB4F823B1673700F8EDD9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DCB4F723B1673700F8EDD9 /* ViewController.swift */; };
@@ -34,6 +35,7 @@
 		B6095A3823BBF5D900782FBB /* UIStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStyles.swift; sourceTree = "<group>"; };
 		B6095A3A23BBF97500782FBB /* AddOrderedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOrderedViewController.swift; sourceTree = "<group>"; };
 		B6095A3E23BC85E200782FBB /* back.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = back.mp4; sourceTree = "<group>"; };
+		B62EB76023C2937800AA0C05 /* UpdateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewController.swift; sourceTree = "<group>"; };
 		B6DCB4F023B1673700F8EDD9 /* Mealette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mealette.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6DCB4F323B1673700F8EDD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6DCB4F523B1673700F8EDD9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				B6DCB51923B1DE5400F8EDD9 /* OrderedViewController.swift */,
 				B6095A3A23BBF97500782FBB /* AddOrderedViewController.swift */,
 				B6DCB51D23B2C55300F8EDD9 /* SettingsViewController.swift */,
+				B62EB76023C2937800AA0C05 /* UpdateProfileViewController.swift */,
 				B6DCB50D23B16EAD00F8EDD9 /* cooked.swift */,
 				B6DCB50B23B16EAD00F8EDD9 /* ordered.swift */,
 				B6DCB50C23B16EAD00F8EDD9 /* User.swift */,
@@ -269,6 +272,7 @@
 				B6DCB4F623B1673700F8EDD9 /* SceneDelegate.swift in Sources */,
 				B6095A3923BBF5D900782FBB /* UIStyles.swift in Sources */,
 				B6DCB50F23B16EAD00F8EDD9 /* User.swift in Sources */,
+				B62EB76123C2937800AA0C05 /* UpdateProfileViewController.swift in Sources */,
 				B6DCB51E23B2C55300F8EDD9 /* SettingsViewController.swift in Sources */,
 				B6056A2823BBE8B800DF7DC1 /* AddCookedViewController.swift in Sources */,
 			);
