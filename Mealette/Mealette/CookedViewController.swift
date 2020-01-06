@@ -34,7 +34,7 @@ class CookedViewController: UIViewController, UITableViewDataSource, UITableView
     
     func setupView() {
         cookedNavItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCooked))
-        cookedNavItem.leftBarButtonItem = UIBarButtonItem(title: "Randomize", style: .done, target: self, action: #selector(randomize))
+        cookedNavItem.leftBarButtonItem = UIBarButtonItem(title: "Choose meal!", style: .done, target: self, action: #selector(randomize))
 //        let searchbottom = searchBar.bottomAnchor.constraint(equalTo: foodsTableView.topAnchor)
 //        let leftconst = searchBar.leftAnchor.constraint(equalTo: view.leftAnchor)
 //        let rightconst = searchBar.rightAnchor.constraint(equalTo: filterBtn.leftAnchor)
