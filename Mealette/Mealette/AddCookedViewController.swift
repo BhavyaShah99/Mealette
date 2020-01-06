@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import Firebase
 
-class AddCookedViewController: UIViewController {
+class AddCookedViewController: UIViewController, UITextFieldDelegate {
     
     let currUser = Auth.auth().currentUser?.uid
     let df = Firestore.firestore()
@@ -28,12 +28,28 @@ class AddCookedViewController: UIViewController {
     }
     
     func setupView() {
+        //Style the look of all components
         UIStyles.txtFieldStyling(txtField: foodNametxt)
         UIStyles.txtFieldStyling(txtField: ingrdTxt)
         UIStyles.txtViewStyling(txtView: recptxtView)
         UIStyles.styleBtn(btn: addCookedbtn, col: UIColor(red: 0.0471, green: 0.7569, blue: 0, alpha: 1.0).cgColor)
         addCookedbtn.backgroundColor = UIColor(red: 0.0471, green: 0.7569, blue: 0, alpha: 1.0)
+        //Style while editing properties of each component
         favSwitch.isOn = false
+        //Set up keyboards return key properties for each field
+        UIStyles.txtDelegateTag(txtField: foodNametxt, tag: 0, view: self, retKeyType: .next)
+        UIStyles.txtDelegateTag(txtField: ingrdTxt, tag: 1, view: self, retKeyType: .done)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nexttxtField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nexttxtField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+            return true
+        }
+        return false
+        
     }
     
     @IBAction func addCookedItem(_ sender: UIButton) {

@@ -18,6 +18,11 @@ class UIStyles {
         txtField.borderStyle = .none
         txtField.layer.addSublayer(line)
     }
+    
+    static func txtViewStyling(txtView : UITextView!) {
+        txtView.layer.borderWidth = 2
+        txtView.layer.borderColor = UIColor(red: 0.0471, green: 0.7569, blue: 0, alpha: 1.0).cgColor
+    }
        
     static func styleBtn(btn : UIButton!, col : CGColor) {
         btn.layer.cornerRadius = 20
@@ -31,10 +36,9 @@ class UIStyles {
         view.present(alert, animated: true, completion: nil)
     }
     
-    static func txtViewStyling(txtView : UITextView!) {
-        let line = CALayer()
-        line.frame = CGRect(x: 0, y: txtView.frame.height-2, width: txtView.frame.width, height: 2)
-        line.backgroundColor = UIColor(red: 0.0471, green: 0.7569, blue: 0, alpha: 1.0).cgColor
-        txtView.layer.addSublayer(line)
+    static func txtDelegateTag(txtField: UITextField, tag: Int, view: UITextFieldDelegate, retKeyType : UIReturnKeyType) {
+        txtField.delegate = view
+        txtField.tag = tag
+        txtField.returnKeyType = retKeyType
     }
 }

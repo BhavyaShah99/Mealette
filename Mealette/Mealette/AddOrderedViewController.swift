@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import Firebase
 
-class AddOrderedViewController: UIViewController {
+class AddOrderedViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var foodCusiTxt: UITextField!
     @IBOutlet var addOrdered: UIButton!
@@ -27,10 +27,24 @@ class AddOrderedViewController: UIViewController {
     }
     
     func setupView() {
+        //Style the look of each component
         UIStyles.txtFieldStyling(txtField: foodCusiTxt)
         UIStyles.styleBtn(btn: addOrdered, col: UIColor(red: 0.0471, green: 0.7569, blue: 0, alpha: 1.0).cgColor)
         addOrdered.backgroundColor = UIColor(red: 0.0471, green: 0.7569, blue: 0, alpha: 1.0)
+        //Style while editing properties of each component
         favSwitch.isOn = false
+        //Set up keyboards return key properties for each field
+        UIStyles.txtDelegateTag(txtField: foodCusiTxt, tag: 0, view: self, retKeyType: .done)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nexttxtField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nexttxtField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+            return true
+        }
+        return false
     }
     
     @IBAction func addOrd(_ sender: Any) {

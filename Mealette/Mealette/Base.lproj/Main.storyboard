@@ -698,7 +698,6 @@
                                     <constraint firstItem="s28-dm-cmb" firstAttribute="width" secondItem="Vpz-aa-dI4" secondAttribute="width" id="XSi-JK-7Rt"/>
                                     <constraint firstItem="s28-dm-cmb" firstAttribute="height" secondItem="Vpz-aa-dI4" secondAttribute="height" id="anX-oH-eef"/>
                                     <constraint firstItem="B83-c6-5pm" firstAttribute="height" secondItem="40b-ek-w8a" secondAttribute="height" id="fvn-ax-Q2l"/>
-                                    <constraint firstItem="s28-dm-cmb" firstAttribute="height" secondItem="los-vE-4fN" secondAttribute="height" id="h3v-M0-8PK"/>
                                     <constraint firstItem="s28-dm-cmb" firstAttribute="width" secondItem="los-vE-4fN" secondAttribute="width" id="ots-0M-1MQ"/>
                                     <constraint firstItem="s28-dm-cmb" firstAttribute="height" secondItem="0Oa-rq-gGz" secondAttribute="height" id="zne-Qg-BTi"/>
                                 </constraints>

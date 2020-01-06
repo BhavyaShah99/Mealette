@@ -12,7 +12,7 @@ import FirebaseAuth
 import Firebase
 import FirebaseStorage
 
-class SingUpViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SingUpViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet var username: UITextField!
     @IBOutlet var email: UITextField!
@@ -32,6 +32,7 @@ class SingUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     func setupView() {
+        //Style the look of each textfield
         UIStyles.txtFieldStyling(txtField: username)
         UIStyles.txtFieldStyling(txtField: email)
         UIStyles.txtFieldStyling(txtField: fullname)
@@ -39,6 +40,7 @@ class SingUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         UIStyles.txtFieldStyling(txtField: password)
         UIStyles.txtFieldStyling(txtField: confpassword)
         UIStyles.styleBtn(btn: signupbtn, col: UIColor(red: 0.0471, green: 0.7569, blue: 0, alpha: 1.0).cgColor)
+       //Set up what happens when each field is tapped on
         profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(chooseProfileImage)))
         profileImageView.isUserInteractionEnabled = true
         profileImageView.layer.cornerRadius = 52.5
@@ -51,6 +53,27 @@ class SingUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         dietarypref.clearButtonMode = .whileEditing
         password.clearButtonMode = .whileEditing
         confpassword.clearButtonMode = .whileEditing
+        //Set up keyboards return key properties for each field
+        UIStyles.txtDelegateTag(txtField: username, tag: 0, view: self, retKeyType: .next)
+        UIStyles.txtDelegateTag(txtField: email, tag: 1, view: self, retKeyType: .next)
+        UIStyles.txtDelegateTag(txtField: fullname, tag: 2, view: self, retKeyType: .next)
+        UIStyles.txtDelegateTag(txtField: dietarypref, tag: 3, view: self, retKeyType: .next)
+        UIStyles.txtDelegateTag(txtField: password, tag: 4, view: self, retKeyType: .next)
+        UIStyles.txtDelegateTag(txtField: confpassword, tag: 5, view: self, retKeyType: .go)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nexttxtField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nexttxtField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+            if textField.returnKeyType == .go {
+                self.signUpPerform()
+            }
+            return true
+        }
+        return false
+        
     }
     
     @objc func chooseProfileImage() {
@@ -117,6 +140,10 @@ class SingUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction func signUp(_ sender: Any) {
+        signUpPerform()
+    }
+    
+    func signUpPerform() {
         let validated = validate()
         if validated != nil {
             UIStyles.alertBox(title: "Error", msg: validated!, view: self, action: "Ok")
