@@ -29,6 +29,7 @@ class SettingsViewController: UIViewController {
         guard let currUser = Auth.auth().currentUser?.uid else {return}
         getInfo(currUser: currUser)
         setUpView()
+        self.hideKeyboardWhenTappedAround()
     }
     
     func setUpView() {
@@ -80,8 +81,9 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func updatePressed(_ sender: Any) {
-        let prof = self.storyboard?.instantiateViewController(identifier: "settings") as? HomePageViewController
-        present(prof, animated: true, completion: nil)
+        let update = self.storyboard?.instantiateViewController(identifier: "update") as? UpdateProfileViewController
+        self.view.window?.rootViewController = update
+        self.view.window?.makeKeyAndVisible()
     }
     
 }

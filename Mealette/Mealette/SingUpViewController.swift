@@ -28,6 +28,7 @@ class SingUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupView()
+        self.hideKeyboardWhenTappedAround()
     }
     
     func setupView() {
@@ -44,6 +45,12 @@ class SingUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         signupbtn.backgroundColor = UIColor(red: 0.0471, green: 0.7569, blue: 0, alpha: 1.0)
         self.seebtn.setTitle("See", for: .normal)
         username.rightView = seebtn
+        username.clearButtonMode = .whileEditing
+        email.clearButtonMode = .whileEditing
+        fullname.clearButtonMode = .whileEditing
+        dietarypref.clearButtonMode = .whileEditing
+        password.clearButtonMode = .whileEditing
+        confpassword.clearButtonMode = .whileEditing
     }
     
     @objc func chooseProfileImage() {
@@ -140,7 +147,7 @@ class SingUpViewController: UIViewController, UIImagePickerControllerDelegate, U
                                 guard let url = url?.absoluteString else {
                                     return
                                 }
-                                let data = ["fullname":fname,"username":uname,"dietarypref":dpref,"email":em,"profpic":url] as [String : Any]
+                                let data = ["fullname":fname,"username":uname,"dietarypref":dpref,"email":em,"profpic":url, "friends":[]] as [String : Any]
                                 self.addUserData(userid: uid, dict: data as [String : AnyObject])
                             }
                         }

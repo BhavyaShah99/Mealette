@@ -30,4 +30,11 @@ class UIStyles {
         alert.addAction(UIAlertAction(title: action, style: .cancel, handler: nil))
         view.present(alert, animated: true, completion: nil)
     }
+    
+    static func txtViewStyling(txtView : UITextView!) {
+        let line = CALayer()
+        line.frame = CGRect(x: 0, y: txtView.frame.height-2, width: txtView.frame.width, height: 2)
+        line.backgroundColor = UIColor(red: 0.0471, green: 0.7569, blue: 0, alpha: 1.0).cgColor
+        txtView.layer.addSublayer(line)
+    }
 }

@@ -14,19 +14,13 @@ class User {
     var userName : String = ""
     var fullName : String = ""
     var email : String = ""
-    var cook : [cooked?]
-    var order : [ordered?]
-    var favcook : [cooked?]
-    var favorder : [ordered?]
+    var friends : [String]
     
-    init(uid: String, uname: String, fname: String, em: String, c: [cooked?], o: [ordered?], fc: [cooked?], fo:[ordered?]) {
+    init(uid: String, uname: String, fname: String, em: String, fri: [String]) {
         self.userId = uid
         self.userName = uname
         self.fullName = fname
         self.email = em
-        self.cook = c
-        self.order = o
-        self.favcook = fc
-        self.favorder = fo
+        self.friends = fri
     }
 }

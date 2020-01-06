@@ -24,11 +24,13 @@ class AddCookedViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupView()
+        self.hideKeyboardWhenTappedAround()
     }
     
     func setupView() {
         UIStyles.txtFieldStyling(txtField: foodNametxt)
         UIStyles.txtFieldStyling(txtField: ingrdTxt)
+        UIStyles.txtViewStyling(txtView: recptxtView)
         UIStyles.styleBtn(btn: addCookedbtn, col: UIColor(red: 0.0471, green: 0.7569, blue: 0, alpha: 1.0).cgColor)
         addCookedbtn.backgroundColor = UIColor(red: 0.0471, green: 0.7569, blue: 0, alpha: 1.0)
         favSwitch.isOn = false

@@ -19,13 +19,23 @@ class UpdateProfileViewController: UIViewController {
     @IBOutlet var newEmail : UITextField!
     @IBOutlet var newFullname : UITextField!
     @IBOutlet var newDietpref : UITextField!
+    @IBOutlet var topnav: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        self.hideKeyboardWhenTappedAround()
     }
     
+    func setupView() {
+        topnav.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(goback))
+    }
+    
+    @objc func goback() {
+        let prof = self.storyboard?.instantiateViewController(identifier: "settings") as? SettingsViewController
+        self.view.window?.rootViewController = prof
+        self.view.window?.makeKeyAndVisible()
+    }
 
     func update() {
         let query = db.collection("users").whereField("uid", isEqualTo: currUser!)

@@ -18,7 +18,7 @@ class OrderedViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet var orderedNavItem: UINavigationItem!
     @IBOutlet var ordTableView: UITableView!
     let db = Firestore.firestore()
-    var orderedData = [ordered(item: "Italian", f: false), ordered(item: "Indian", f: false), ordered(item: "Fast Food", f: false), ordered(item: "Thai", f: false), ordered(item: "Greek", f: false), ordered(item: "Japaneese", f: false), ordered(item: "French", f: false), ordered(item: "Chinese", f: false), ordered(item: "Burmese", f: false)]
+    var orderedData = [ordered(item: "Italian", f: false), ordered(item: "Indian", f: false), ordered(item: "Fast Food", f: false), ordered(item: "Thai", f: false), ordered(item: "Greek", f: false), ordered(item: "Japaneese", f: false), ordered(item: "French", f: false), ordered(item: "Chinese", f: false), ordered(item: "Burmese", f: false), ordered(item: "Mediterranean", f: false)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +26,7 @@ class OrderedViewController: UIViewController, UITableViewDataSource, UITableVie
         orderedNavItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addOrdered))
         orderedNavItem.leftBarButtonItem = UIBarButtonItem(title: "Randomize", style: .done, target: self, action: #selector(randomize))
         readOrdData()
+        self.hideKeyboardWhenTappedAround()
     }
     
     func readOrdData() {
@@ -98,6 +99,7 @@ class OrderedViewController: UIViewController, UITableViewDataSource, UITableVie
             fav = "No"
         }
         cell.detailTextLabel?.text = "Favourites : " + fav
+        cell.backgroundColor = UIColor.systemBackground
         return cell
     }
 }

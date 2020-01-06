@@ -166,6 +166,7 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SzX-hb-x8b">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="mlS-wp-3iV"/>
                                 </constraints>
@@ -175,7 +176,7 @@
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="J9e-La-sWi">
                                 <rect key="frame" x="0.0" y="100" width="375" height="518"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="lpL-l4-MlR" id="KIj-tk-vK6"/>
                                     <outlet property="delegate" destination="lpL-l4-MlR" id="0Xz-2B-1gj"/>
@@ -289,6 +290,57 @@
             </objects>
             <point key="canvasLocation" x="4433" y="845"/>
         </scene>
+        <!--Messages-->
+        <scene sceneID="VjF-CQ-t6W">
+            <objects>
+                <viewController id="EVd-xd-oGJ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f6j-wn-Ynt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dyA-kT-VI9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="qgG-2i-W0Y"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Messaging" id="ciY-R5-yOl"/>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vTE-Gi-j7e">
+                                <rect key="frame" x="0.0" y="100" width="375" height="518"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="NJz-hA-VcZ">
+                                <rect key="frame" x="0.0" y="44" width="375" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="gMN-g6-tLe"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="vTE-Gi-j7e" firstAttribute="trailing" secondItem="pAh-g2-Fnq" secondAttribute="trailing" id="9QQ-Xu-qCn"/>
+                            <constraint firstItem="dyA-kT-VI9" firstAttribute="trailing" secondItem="pAh-g2-Fnq" secondAttribute="trailing" id="LDX-iG-rNz"/>
+                            <constraint firstItem="dyA-kT-VI9" firstAttribute="leading" secondItem="pAh-g2-Fnq" secondAttribute="leading" id="O3S-0Y-jqh"/>
+                            <constraint firstItem="dyA-kT-VI9" firstAttribute="top" secondItem="pAh-g2-Fnq" secondAttribute="top" id="d5u-JQ-7rA"/>
+                            <constraint firstItem="vTE-Gi-j7e" firstAttribute="top" secondItem="NJz-hA-VcZ" secondAttribute="bottom" id="gs1-p3-uZX"/>
+                            <constraint firstItem="vTE-Gi-j7e" firstAttribute="bottom" secondItem="pAh-g2-Fnq" secondAttribute="bottom" id="mnY-Ko-VeQ"/>
+                            <constraint firstItem="NJz-hA-VcZ" firstAttribute="leading" secondItem="pAh-g2-Fnq" secondAttribute="leading" id="nhx-6o-zsP"/>
+                            <constraint firstItem="vTE-Gi-j7e" firstAttribute="leading" secondItem="pAh-g2-Fnq" secondAttribute="leading" id="wOe-If-QYx"/>
+                            <constraint firstItem="NJz-hA-VcZ" firstAttribute="trailing" secondItem="pAh-g2-Fnq" secondAttribute="trailing" id="we2-Jb-Hrs"/>
+                            <constraint firstItem="NJz-hA-VcZ" firstAttribute="top" secondItem="pAh-g2-Fnq" secondAttribute="top" constant="44" id="ykP-mt-Zcd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pAh-g2-Fnq"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Messages" image="message" catalog="system" id="LLO-ZF-iqk"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vvj-pn-Ul4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2645.5999999999999" y="-784.85757121439292"/>
+        </scene>
         <!--Profile-->
         <scene sceneID="MLw-PE-ydl">
             <objects>
@@ -298,11 +350,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X1n-14-MbY">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lvf-CP-b1Z">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="aHO-EY-dR0"/>
                                 </constraints>
@@ -441,11 +494,10 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="2QC-LP-PXc" firstAttribute="centerX" secondItem="Lvf-CP-b1Z" secondAttribute="centerX" id="1C4-vf-2nY"/>
                             <constraint firstItem="X1n-14-MbY" firstAttribute="leading" secondItem="PeX-uP-KfV" secondAttribute="leading" id="6u2-ZF-ktb"/>
-                            <constraint firstItem="X1n-14-MbY" firstAttribute="top" secondItem="PeX-uP-KfV" secondAttribute="top" id="8jz-95-WJ5"/>
                             <constraint firstItem="DLR-yg-6W9" firstAttribute="top" secondItem="2QC-LP-PXc" secondAttribute="bottom" constant="35" id="AOQ-x4-unI"/>
                             <constraint firstItem="PeX-uP-KfV" firstAttribute="trailing" secondItem="kfY-9M-Q3v" secondAttribute="trailing" constant="105" id="APg-fw-q3c"/>
                             <constraint firstItem="Lvf-CP-b1Z" firstAttribute="top" secondItem="PeX-uP-KfV" secondAttribute="top" id="Ae9-qY-H7t"/>
@@ -453,6 +505,7 @@
                             <constraint firstItem="Lvf-CP-b1Z" firstAttribute="leading" secondItem="PeX-uP-KfV" secondAttribute="leading" id="GX0-yd-4ep"/>
                             <constraint firstItem="DLR-yg-6W9" firstAttribute="leading" secondItem="PeX-uP-KfV" secondAttribute="leading" constant="30" id="Uzr-Oa-uNb"/>
                             <constraint firstItem="PeX-uP-KfV" firstAttribute="trailing" secondItem="DLR-yg-6W9" secondAttribute="trailing" constant="30" id="ek5-2W-eIj"/>
+                            <constraint firstItem="X1n-14-MbY" firstAttribute="top" secondItem="PeX-uP-KfV" secondAttribute="top" constant="44" id="gDW-f3-NMg"/>
                             <constraint firstItem="Lvf-CP-b1Z" firstAttribute="trailing" secondItem="PeX-uP-KfV" secondAttribute="trailing" id="jMt-SP-R3e"/>
                             <constraint firstItem="PeX-uP-KfV" firstAttribute="bottom" secondItem="kfY-9M-Q3v" secondAttribute="bottom" constant="30" id="lzx-0A-AZc"/>
                             <constraint firstItem="kfY-9M-Q3v" firstAttribute="leading" secondItem="PeX-uP-KfV" secondAttribute="leading" constant="105" id="n01-5O-wAL"/>
@@ -478,10 +531,10 @@
             </objects>
             <point key="canvasLocation" x="3565.5999999999999" y="-573.46326836581716"/>
         </scene>
-        <!--View Controller-->
+        <!--Update Profile View Controller-->
         <scene sceneID="hiB-WW-xrY">
             <objects>
-                <viewController id="aUd-29-TEj" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="update" id="aUd-29-TEj" customClass="UpdateProfileViewController" customModule="Mealette" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cDP-2U-5xt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -504,6 +557,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="c8O-EZ-UMJ"/>
                     </view>
+                    <connections>
+                        <outlet property="topnav" destination="VXx-NF-YBT" id="0PR-RI-Mre"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="acr-7c-CxG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -519,6 +575,7 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N7i-W1-bGd">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="p7a-9q-dv1"/>
                                 </constraints>
@@ -528,7 +585,7 @@
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fun-V9-eyG">
                                 <rect key="frame" x="0.0" y="100" width="375" height="518"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="xyt-IR-dtp" id="GBC-wj-L2A"/>
                                     <outlet property="delegate" destination="xyt-IR-dtp" id="VJg-ww-d4v"/>
@@ -681,7 +738,8 @@
                     <connections>
                         <segue destination="xyt-IR-dtp" kind="relationship" relationship="viewControllers" id="Aui-Nv-iiN"/>
                         <segue destination="lpL-l4-MlR" kind="relationship" relationship="viewControllers" id="tfj-aG-fFp"/>
-                        <segue destination="Slh-Xk-Fg5" kind="relationship" relationship="viewControllers" id="N7V-H8-nQs"/>
+                        <segue destination="EVd-xd-oGJ" kind="relationship" relationship="viewControllers" id="eRW-U3-kpR"/>
+                        <segue destination="Slh-Xk-Fg5" kind="relationship" relationship="viewControllers" id="GBd-m3-umm"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GzL-gl-lBf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -821,6 +879,7 @@
     <resources>
         <image name="defaultUser" width="950" height="886"/>
         <image name="flame" catalog="system" width="54" height="64"/>
+        <image name="message" catalog="system" width="64" height="56"/>
         <image name="person.circle" catalog="system" width="64" height="60"/>
         <image name="phone.circle" catalog="system" width="64" height="60"/>
     </resources>

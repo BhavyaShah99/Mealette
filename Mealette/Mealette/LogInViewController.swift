@@ -20,13 +20,31 @@ class LogInViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupView()
+        self.hideKeyboardWhenTappedAround()
+//        NotificationCenter.default.addObserver(self, selector: #selector(keysShown), name: UIResponder.keyboardWillHideNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keysShown), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
+    
+//    @objc func keysShown(noti: Notification) {
+//        let userinfo = noti.userInfo!
+//        let keysScreenEndFrame = (userinfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+//        let keysViewEndFrame = view.convert(keysScreenEndFrame, from: view.window)
+//        if noti.name == UIResponder.keyboardWillHideNotification{
+//            //adjust scroll view
+//        } else {
+//            //adjust scroll view
+//        }
+//
+//        //scrollview.scrollindicatorInsets = scrollview.contentInset
+//    }
     
     func setupView() {
         UIStyles.txtFieldStyling(txtField: emailtxt)
         UIStyles.txtFieldStyling(txtField: passtxt)
         UIStyles.styleBtn(btn: signin, col: UIColor(red: 0.0471, green: 0.7569, blue: 0, alpha: 1.0).cgColor)
         signin.backgroundColor = UIColor(red: 0.0471, green: 0.7569, blue: 0, alpha: 1.0)
+        emailtxt.clearButtonMode = .whileEditing
+        passtxt.clearButtonMode = .whileEditing
     }
     
 

@@ -25,6 +25,7 @@ class CookedViewController: UIViewController, UITableViewDataSource, UITableView
         // Do any additional setup after loading the view.
         setupView()
         readCookedData()
+        self.hideKeyboardWhenTappedAround()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -34,16 +35,16 @@ class CookedViewController: UIViewController, UITableViewDataSource, UITableView
     func setupView() {
         cookedNavItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCooked))
         cookedNavItem.leftBarButtonItem = UIBarButtonItem(title: "Randomize", style: .done, target: self, action: #selector(randomize))
-        let searchbottom = searchBar.bottomAnchor.constraint(equalTo: foodsTableView.topAnchor)
-        let leftconst = searchBar.leftAnchor.constraint(equalTo: view.leftAnchor)
-        let rightconst = searchBar.rightAnchor.constraint(equalTo: filterBtn.leftAnchor)
-        let fleftcont = filterBtn.leftAnchor.constraint(equalTo: searchBar.rightAnchor)
-        let fbottomconst = filterBtn.bottomAnchor.constraint(equalTo: foodsTableView.topAnchor)
-        let frightconst = filterBtn.rightAnchor.constraint(equalTo: view.rightAnchor)
-        NSLayoutConstraint.activate([searchbottom, leftconst, rightconst, fleftcont, fbottomconst, frightconst])
-        view.layoutIfNeeded()
-        searchBar.translatesAutoresizingMaskIntoConstraints = false
-        filterBtn.translatesAutoresizingMaskIntoConstraints = false
+//        let searchbottom = searchBar.bottomAnchor.constraint(equalTo: foodsTableView.topAnchor)
+//        let leftconst = searchBar.leftAnchor.constraint(equalTo: view.leftAnchor)
+//        let rightconst = searchBar.rightAnchor.constraint(equalTo: filterBtn.leftAnchor)
+//        let fleftcont = filterBtn.leftAnchor.constraint(equalTo: searchBar.rightAnchor)
+//        let fbottomconst = filterBtn.bottomAnchor.constraint(equalTo: foodsTableView.topAnchor)
+//        let frightconst = filterBtn.rightAnchor.constraint(equalTo: view.rightAnchor)
+//        NSLayoutConstraint.activate([searchbottom, leftconst, rightconst, fleftcont, fbottomconst, frightconst])
+//        view.layoutIfNeeded()
+//        searchBar.translatesAutoresizingMaskIntoConstraints = false
+//        filterBtn.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func readCookedData() {
@@ -75,36 +76,40 @@ class CookedViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     @objc func randomize() {
-        let ranIndex = Int.random(in: 0..<self.cookedData.count)
-        let randomized = cookedData[ranIndex]
-        print(randomized.name!)
-        let hour = self.cal.component(.hour, from: self.date)
-        var meal : String!
-        if hour >= 12 && hour <= 16 {
-            meal = "Here's Your Lunch For Today"
-        } else if hour > 16 && hour < 22 {
-            meal = "Here's Your Dinner For Today"
+        if cookedData.count == 0 {
+            return
         } else {
-            meal = "You shouldn't be eating at this hour"
+            let ranIndex = Int.random(in: 0..<self.cookedData.count)
+            let randomized = cookedData[ranIndex]
+            print(randomized.name!)
+            let hour = self.cal.component(.hour, from: self.date)
+            var meal : String!
+            if hour >= 12 && hour <= 16 {
+                meal = "Here's Your Lunch For Today"
+            } else if hour > 16 && hour < 22 {
+                meal = "Here's Your Dinner For Today"
+            } else {
+                meal = "You shouldn't be eating at this hour"
+            }
+            let randName = randomized.name!
+            var randFav : String!
+            if randomized.fav == true {
+                randFav = "Yes"
+            } else {
+                randFav = "No"
+            }
+            let msg = """
+                        Dish Name : \(randName)
+                        Favourite : \(randFav ?? "No")
+                      """
+            let alert = UIAlertController(title: meal, message: msg, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "See Dish Details", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Choose Again", style: .default, handler: { (action) in
+                self.randomize()
+            }))
+            alert.addAction(UIAlertAction(title: "Thank You!", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
         }
-        let randName = randomized.name!
-        var randFav : String!
-        if randomized.fav == true {
-            randFav = "Yes"
-        } else {
-            randFav = "No"
-        }
-        let msg = """
-                    Dish Name : \(randName)
-                    Favourite : \(randFav ?? "No")
-                  """
-        let alert = UIAlertController(title: meal, message: msg, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "See Dish Details", style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: "Choose Again", style: .default, handler: { (action) in
-            self.randomize()
-        }))
-        alert.addAction(UIAlertAction(title: "Thank You!", style: .cancel, handler: nil))
-        present(alert, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -122,6 +127,7 @@ class CookedViewController: UIViewController, UITableViewDataSource, UITableView
             fav = "No"
         }
         cell.detailTextLabel?.text = "Favourites : " + fav
+        cell.backgroundColor = UIColor.systemBackground
         return cell
     }
 }
