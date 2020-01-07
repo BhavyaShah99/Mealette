@@ -157,57 +157,88 @@
             <point key="canvasLocation" x="1807" y="476"/>
         </scene>
         <!--Friends-->
-        <scene sceneID="pVP-QN-EfW">
+        <scene sceneID="VHr-2g-e1g">
             <objects>
-                <viewController id="VsW-vN-BtH" customClass="FriendsViewController" customModule="Mealette" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4Qf-0h-vcd">
+                <viewController id="6Um-hd-W0Y" customClass="FriendsViewController" customModule="Mealette" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fx7-ja-Nag">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i0J-bs-nY3">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FUa-Ug-72U">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="NsA-Dg-A2p"/>
-                                </constraints>
                                 <items>
-                                    <navigationItem title="Friends" id="4Td-XX-LDO"/>
+                                    <navigationItem title="Friends" id="d5i-Eg-fhe"/>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CEf-xq-tiF">
-                                <rect key="frame" x="0.0" y="100" width="375" height="518"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KHP-aL-rBN">
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="EJh-Wm-Mut">
-                                <rect key="frame" x="0.0" y="44" width="375" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="CEf-xq-tiF" firstAttribute="bottom" secondItem="Gxx-I6-OEh" secondAttribute="bottom" id="18x-Te-anT"/>
-                            <constraint firstItem="i0J-bs-nY3" firstAttribute="top" secondItem="Gxx-I6-OEh" secondAttribute="top" id="2yT-6F-8eb"/>
-                            <constraint firstItem="i0J-bs-nY3" firstAttribute="trailing" secondItem="Gxx-I6-OEh" secondAttribute="trailing" id="3Ba-b1-Y5w"/>
-                            <constraint firstItem="Gxx-I6-OEh" firstAttribute="trailing" secondItem="CEf-xq-tiF" secondAttribute="trailing" id="46L-MI-TTf"/>
-                            <constraint firstItem="CEf-xq-tiF" firstAttribute="leading" secondItem="Gxx-I6-OEh" secondAttribute="leading" id="TkV-17-uo0"/>
-                            <constraint firstItem="CEf-xq-tiF" firstAttribute="top" secondItem="EJh-Wm-Mut" secondAttribute="bottom" id="afx-DC-f36"/>
-                            <constraint firstItem="Gxx-I6-OEh" firstAttribute="bottom" secondItem="CEf-xq-tiF" secondAttribute="bottom" id="cAJ-gg-pIB"/>
-                            <constraint firstItem="EJh-Wm-Mut" firstAttribute="leading" secondItem="Gxx-I6-OEh" secondAttribute="leading" id="d09-dQ-qHB"/>
-                            <constraint firstItem="CEf-xq-tiF" firstAttribute="top" secondItem="EJh-Wm-Mut" secondAttribute="bottom" id="hPG-3h-pxY"/>
-                            <constraint firstItem="EJh-Wm-Mut" firstAttribute="trailing" secondItem="Gxx-I6-OEh" secondAttribute="trailing" id="n8P-98-qgd"/>
-                            <constraint firstItem="i0J-bs-nY3" firstAttribute="leading" secondItem="Gxx-I6-OEh" secondAttribute="leading" id="v1E-Zo-ouK"/>
-                            <constraint firstItem="EJh-Wm-Mut" firstAttribute="top" secondItem="i0J-bs-nY3" secondAttribute="bottom" id="vwn-db-eMx"/>
-                            <constraint firstItem="CEf-xq-tiF" firstAttribute="trailing" secondItem="Gxx-I6-OEh" secondAttribute="trailing" id="yo8-QZ-a9M"/>
+                            <constraint firstItem="KHP-aL-rBN" firstAttribute="top" secondItem="FUa-Ug-72U" secondAttribute="bottom" id="6tc-Ka-ecU"/>
+                            <constraint firstItem="GkG-O2-IAh" firstAttribute="trailing" secondItem="KHP-aL-rBN" secondAttribute="trailing" id="FxT-5T-mez"/>
+                            <constraint firstItem="GkG-O2-IAh" firstAttribute="bottom" secondItem="KHP-aL-rBN" secondAttribute="bottom" id="YAl-yc-97u"/>
+                            <constraint firstItem="KHP-aL-rBN" firstAttribute="leading" secondItem="GkG-O2-IAh" secondAttribute="leading" id="aC3-Yw-FZK"/>
+                            <constraint firstItem="FUa-Ug-72U" firstAttribute="top" secondItem="GkG-O2-IAh" secondAttribute="top" id="bam-tU-YEs"/>
+                            <constraint firstItem="FUa-Ug-72U" firstAttribute="leading" secondItem="KHP-aL-rBN" secondAttribute="leading" id="p9q-I8-bhH"/>
+                            <constraint firstItem="FUa-Ug-72U" firstAttribute="trailing" secondItem="KHP-aL-rBN" secondAttribute="trailing" id="wIX-vb-Vnf"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Gxx-I6-OEh"/>
+                        <viewLayoutGuide key="safeArea" id="GkG-O2-IAh"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Friends" image="person.3" catalog="system" id="5FX-p2-nXo"/>
+                    <tabBarItem key="tabBarItem" title="Friends" image="person.3" catalog="system" id="cLY-dG-2A9"/>
                     <connections>
-                        <outlet property="topnav" destination="4Td-XX-LDO" id="X4d-jV-8wW"/>
+                        <outlet property="existingFriendsTbl" destination="KHP-aL-rBN" id="0u9-D4-5cw"/>
+                        <outlet property="newFriendsTbl" destination="C5C-Fi-V2i" id="R6Q-ck-8B2"/>
+                        <outlet property="newFriendsView" destination="mQO-WA-PUf" id="2qD-Mv-Fuk"/>
+                        <outlet property="searchNew" destination="m2E-tf-pHg" id="jLr-4Q-5Ze"/>
+                        <outlet property="topNav" destination="d5i-Eg-fhe" id="heM-3a-NZ0"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QOl-Yz-EdV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oqz-Jo-XOw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="mQO-WA-PUf">
+                    <rect key="frame" x="0.0" y="0.0" width="308" height="496"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="C5C-Fi-V2i">
+                            <rect key="frame" x="0.0" y="56" width="308" height="440"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        </tableView>
+                        <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="m2E-tf-pHg">
+                            <rect key="frame" x="0.0" y="0.0" width="252" height="56"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="56" id="W78-fY-M0E"/>
+                            </constraints>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ApK-c9-fim">
+                            <rect key="frame" x="262" y="0.0" width="46" height="56"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="56" id="yme-df-7Ps"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="m2E-tf-pHg" firstAttribute="leading" secondItem="L4c-6O-idA" secondAttribute="leading" id="9Dv-5W-Id1"/>
+                        <constraint firstItem="C5C-Fi-V2i" firstAttribute="top" secondItem="ApK-c9-fim" secondAttribute="bottom" id="D7I-dV-Pee"/>
+                        <constraint firstItem="ApK-c9-fim" firstAttribute="leading" secondItem="m2E-tf-pHg" secondAttribute="trailing" constant="10" id="Da4-b4-iIP"/>
+                        <constraint firstItem="m2E-tf-pHg" firstAttribute="top" secondItem="L4c-6O-idA" secondAttribute="top" id="F8H-G6-C1Y"/>
+                        <constraint firstItem="C5C-Fi-V2i" firstAttribute="top" secondItem="m2E-tf-pHg" secondAttribute="bottom" id="KWR-F8-9tb"/>
+                        <constraint firstItem="ApK-c9-fim" firstAttribute="trailing" secondItem="L4c-6O-idA" secondAttribute="trailing" id="No2-34-QIZ"/>
+                        <constraint firstItem="C5C-Fi-V2i" firstAttribute="leading" secondItem="L4c-6O-idA" secondAttribute="leading" id="RH3-pQ-Iu3"/>
+                        <constraint firstItem="ApK-c9-fim" firstAttribute="top" secondItem="L4c-6O-idA" secondAttribute="top" id="WbL-VD-4gS"/>
+                        <constraint firstItem="ApK-c9-fim" firstAttribute="leading" secondItem="m2E-tf-pHg" secondAttribute="trailing" constant="10" id="bcn-Ae-fSI"/>
+                        <constraint firstItem="C5C-Fi-V2i" firstAttribute="top" secondItem="m2E-tf-pHg" secondAttribute="bottom" id="jcd-V0-pTz"/>
+                        <constraint firstItem="C5C-Fi-V2i" firstAttribute="trailing" secondItem="L4c-6O-idA" secondAttribute="trailing" id="qJh-7Y-9YO"/>
+                        <constraint firstItem="C5C-Fi-V2i" firstAttribute="bottom" secondItem="L4c-6O-idA" secondAttribute="bottom" id="t96-qZ-zBU"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="L4c-6O-idA"/>
+                </view>
             </objects>
-            <point key="canvasLocation" x="2645.5999999999999" y="972.86356821589209"/>
+            <point key="canvasLocation" x="2712.8000000000002" y="1298.5007496251876"/>
         </scene>
         <!--Ordered-->
         <scene sceneID="JqQ-Sc-tbx">
@@ -798,8 +829,8 @@
                         <segue destination="xyt-IR-dtp" kind="relationship" relationship="viewControllers" id="Aui-Nv-iiN"/>
                         <segue destination="lpL-l4-MlR" kind="relationship" relationship="viewControllers" id="tfj-aG-fFp"/>
                         <segue destination="EVd-xd-oGJ" kind="relationship" relationship="viewControllers" id="eRW-U3-kpR"/>
-                        <segue destination="VsW-vN-BtH" kind="relationship" relationship="viewControllers" id="5sl-nB-eIR"/>
                         <segue destination="Slh-Xk-Fg5" kind="relationship" relationship="viewControllers" id="wxR-vx-QVp"/>
+                        <segue destination="6Um-hd-W0Y" kind="relationship" relationship="viewControllers" id="phc-y0-cDt"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GzL-gl-lBf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
