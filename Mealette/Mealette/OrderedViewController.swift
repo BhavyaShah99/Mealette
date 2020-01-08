@@ -32,6 +32,7 @@ class OrderedViewController: UIViewController, UITableViewDataSource, UITableVie
         orderedNavItem.leftBarButtonItem = UIBarButtonItem(title: "Choose meal!", style: .done, target: self, action: #selector(randomize))
         readOrdData()
         self.hideKeyboardWhenTappedAround()
+        filterResult = orderedData
     }
     
     func readOrdData() {
@@ -122,17 +123,24 @@ class OrderedViewController: UIViewController, UITableViewDataSource, UITableVie
         return cell
     }
     
-    @IBAction func filterPressed(_ sender: Any) {
-        filterResult = mergeSort(arr: orderedData)
-        filterSelected = true
-        ordTableView.reloadData()
-        for i in filterResult {
-            print(i.name)
+    @IBAction func filterPressed(_ sender: UIButton) {
+        if sender.isSelected {
+            filterResult = mergeSort(arr: orderedData)
+            filterSelected = true
+            ordTableView.reloadData()
+            sender.isSelected = false
+            filterSelected = true
+        } else {
+            filterSelected = false
+            sender.isSelected = true
+            ordTableView.reloadData()
         }
     }
 }
 
 extension OrderedViewController {
+    
+    // mergesort
     func mergeSort(arr : [ordered]) -> [ordered] {
         guard arr.count > 1 else {
             return arr
@@ -155,7 +163,35 @@ extension OrderedViewController {
                 merged.append(r.removeFirst())
             }
         }
-        
         return merged + l + r
     }
+    
+    //quicksort
+//    func partitionArr(low: Int, high: Int) -> Int {
+//        let pivot = filterResult[low]
+//        var i = low
+//        var j = high
+//        while i < j {
+//            repeat {
+//                i += 1
+//                print(i)
+//            } while filterResult[i].name < pivot.name
+//            repeat {
+//                j -= 1
+//            } while filterResult[j].name > pivot.name
+//            if i < j {
+//                filterResult.swapAt(i, j)
+//            }
+//        }
+//        filterResult.swapAt(low, j)
+//        return j
+//    }
+//
+//    func quickSort(low: Int, high: Int) {
+//        if low < high {
+//            let j = partitionArr(low: low, high: high)
+//            quickSort(low: low, high: j)
+//            quickSort(low: j+1, high: high)
+//        }
+//    }
 }

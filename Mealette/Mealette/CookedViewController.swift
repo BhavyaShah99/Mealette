@@ -139,10 +139,18 @@ class CookedViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
     
-    @IBAction func filterPressed(_ sender: Any) {
-        filterResult = mergeSort(arr: cookedData)
-        filterSelected = true
-        foodsTableView.reloadData()
+    @IBAction func filterPressed(_ sender: UIButton) {
+        if sender.isSelected {
+            filterResult = mergeSort(arr: cookedData)
+            filterSelected = true
+            foodsTableView.reloadData()
+            sender.isSelected = false
+            filterSelected = true
+        } else {
+            filterSelected = false
+            sender.isSelected = true
+            foodsTableView.reloadData()
+        }
     }
 }
 
