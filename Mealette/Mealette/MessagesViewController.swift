@@ -11,7 +11,8 @@ import UIKit
 class MessagesViewController: UIViewController {
 
     @IBOutlet var topnav: UINavigationItem!
-
+    @IBOutlet var filterbtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -20,14 +21,9 @@ class MessagesViewController: UIViewController {
     
     func setupView() {
         topnav.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(newMsg))
-        topnav.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: #selector(sort))
     }
     
     @objc func newMsg() {
-        
-    }
-    
-    @objc func sort() {
         
     }
 }

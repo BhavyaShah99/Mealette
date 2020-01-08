@@ -15,8 +15,13 @@ class OrderedViewController: UIViewController, UITableViewDataSource, UITableVie
     let currUser = Auth.auth().currentUser?.uid
     let date = Date()
     let cal = Calendar.current
+    var searchResult = [ordered]()
+    var filterResult = [ordered]()
+    var searchSelected = false
+    var filterSelected = false
     @IBOutlet var orderedNavItem: UINavigationItem!
     @IBOutlet var ordTableView: UITableView!
+    @IBOutlet var filterbtn: UIButton!
     let db = Firestore.firestore()
     var orderedData = [ordered(item: "Italian", f: false), ordered(item: "Indian", f: false), ordered(item: "Fast Food", f: false), ordered(item: "Thai", f: false), ordered(item: "Greek", f: false), ordered(item: "Japaneese", f: false), ordered(item: "French", f: false), ordered(item: "Chinese", f: false), ordered(item: "Burmese", f: false), ordered(item: "Mediterranean", f: false)]
     
@@ -90,16 +95,67 @@ class OrderedViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cellId")
-        let foodCusi = orderedData[indexPath.row]
-        cell.textLabel?.text = foodCusi.name
-        var fav : String
-        if foodCusi.fav == true {
-            fav = "Yes"
+        
+        if filterSelected == true {
+            let filteredFood = filterResult[indexPath.row]
+            cell.textLabel?.text = filteredFood.name
+            var filterFav : String
+            if filteredFood.fav == true {
+                filterFav = "Yes"
+            } else {
+                filterFav = "No"
+            }
+            cell.detailTextLabel?.text = "Favourites : " + filterFav
         } else {
-            fav = "No"
+            let foodCusi = orderedData[indexPath.row]
+            cell.textLabel?.text = foodCusi.name
+            var fav : String
+            if foodCusi.fav == true {
+                fav = "Yes"
+            } else {
+                fav = "No"
+            }
+            cell.detailTextLabel?.text = "Favourites : " + fav
         }
-        cell.detailTextLabel?.text = "Favourites : " + fav
+        
         cell.backgroundColor = UIColor.systemBackground
         return cell
+    }
+    
+    @IBAction func filterPressed(_ sender: Any) {
+        filterResult = mergeSort(arr: orderedData)
+        filterSelected = true
+        ordTableView.reloadData()
+        for i in filterResult {
+            print(i.name)
+        }
+    }
+}
+
+extension OrderedViewController {
+    func mergeSort(arr : [ordered]) -> [ordered] {
+        guard arr.count > 1 else {
+            return arr
+        }
+        let lArr = Array(arr[0 ..< arr.count/2])
+        let rArr = Array(arr[arr.count/2 ..< arr.count])
+        
+        return merge(lArr: mergeSort(arr: lArr), rArr: mergeSort(arr: rArr))
+    }
+    
+    func merge(lArr : [ordered], rArr : [ordered]) -> [ordered] {
+        var merged : [ordered] = []
+        var l = lArr
+        var r = rArr
+        
+        while l.count > 0 && r.count > 0 {
+            if l.first!.name <  r.first!.name {
+                merged.append(l.removeFirst())
+            } else {
+                merged.append(r.removeFirst())
+            }
+        }
+        
+        return merged + l + r
     }
 }

@@ -15,6 +15,10 @@ class CookedViewController: UIViewController, UITableViewDataSource, UITableView
     let date = Date()
     let cal = Calendar.current
     var cookedData = [cooked]()
+    var searchResult = [cooked]()
+    var filterResult = [cooked]()
+    var searchSelected = false
+    var filterSelected = false
     @IBOutlet var cookedNavItem: UINavigationItem!
     @IBOutlet var foodsTableView: UITableView!
     @IBOutlet var searchBar: UISearchBar!
@@ -35,16 +39,6 @@ class CookedViewController: UIViewController, UITableViewDataSource, UITableView
     func setupView() {
         cookedNavItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCooked))
         cookedNavItem.leftBarButtonItem = UIBarButtonItem(title: "Choose meal!", style: .done, target: self, action: #selector(randomize))
-//        let searchbottom = searchBar.bottomAnchor.constraint(equalTo: foodsTableView.topAnchor)
-//        let leftconst = searchBar.leftAnchor.constraint(equalTo: view.leftAnchor)
-//        let rightconst = searchBar.rightAnchor.constraint(equalTo: filterBtn.leftAnchor)
-//        let fleftcont = filterBtn.leftAnchor.constraint(equalTo: searchBar.rightAnchor)
-//        let fbottomconst = filterBtn.bottomAnchor.constraint(equalTo: foodsTableView.topAnchor)
-//        let frightconst = filterBtn.rightAnchor.constraint(equalTo: view.rightAnchor)
-//        NSLayoutConstraint.activate([searchbottom, leftconst, rightconst, fleftcont, fbottomconst, frightconst])
-//        view.layoutIfNeeded()
-//        searchBar.translatesAutoresizingMaskIntoConstraints = false
-//        filterBtn.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func readCookedData() {
@@ -118,16 +112,64 @@ class CookedViewController: UIViewController, UITableViewDataSource, UITableView
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
-        let food = cookedData[indexPath.row]
-        cell.textLabel?.text = food.name
-        var fav : String
-        if food.fav == true {
-            fav = "Yes"
+        
+        if filterSelected == true {
+            let filteredFood = filterResult[indexPath.row]
+            cell.textLabel?.text = filteredFood.name
+            var filterFav : String
+            if filteredFood.fav == true {
+                filterFav = "Yes"
+            } else {
+                filterFav = "No"
+            }
+            cell.detailTextLabel?.text = "Favourites : " + filterFav
         } else {
-            fav = "No"
+            let food = cookedData[indexPath.row]
+            cell.textLabel?.text = food.name
+            var fav : String
+            if food.fav == true {
+                fav = "Yes"
+            } else {
+                fav = "No"
+            }
+            cell.detailTextLabel?.text = "Favourites : " + fav
         }
-        cell.detailTextLabel?.text = "Favourites : " + fav
+            
         cell.backgroundColor = UIColor.systemBackground
         return cell
+    }
+    
+    @IBAction func filterPressed(_ sender: Any) {
+        filterResult = mergeSort(arr: cookedData)
+        filterSelected = true
+        foodsTableView.reloadData()
+    }
+}
+
+extension CookedViewController {
+    func mergeSort(arr : [cooked]) -> [cooked] {
+        guard arr.count > 1 else {
+            return arr
+        }
+        let lArr = Array(arr[0 ..< arr.count/2])
+        let rArr = Array(arr[arr.count/2 ..< arr.count])
+        
+        return merge(lArr: mergeSort(arr: lArr), rArr: mergeSort(arr: rArr))
+    }
+    
+    func merge(lArr : [cooked], rArr : [cooked]) -> [cooked] {
+        var merged : [cooked] = []
+        var l = lArr
+        var r = rArr
+        
+        while l.count > 0 && r.count > 0 {
+            if l.first!.name <  r.first!.name {
+                merged.append(l.removeFirst())
+            } else {
+                merged.append(r.removeFirst())
+            }
+        }
+        
+        return merged + l + r
     }
 }

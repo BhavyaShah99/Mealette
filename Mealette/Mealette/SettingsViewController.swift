@@ -13,7 +13,6 @@ class SettingsViewController: UIViewController {
     var dietpref : String!
     @IBOutlet var topNav: UINavigationBar!
     @IBOutlet var bottomNav: UITabBarItem!
-    @IBOutlet var settingsTbl: UITableView!
     @IBOutlet var topnavItem: UINavigationItem!
     @IBOutlet var usernameTxt: UITextField!
     @IBOutlet var fullnameTxt: UITextField!
