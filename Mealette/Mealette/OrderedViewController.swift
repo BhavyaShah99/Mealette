@@ -32,7 +32,6 @@ class OrderedViewController: UIViewController, UITableViewDataSource, UITableVie
         orderedNavItem.leftBarButtonItem = UIBarButtonItem(title: "Choose meal!", style: .done, target: self, action: #selector(randomize))
         readOrdData()
         self.hideKeyboardWhenTappedAround()
-        filterResult = orderedData
     }
     
     func readOrdData() {
@@ -60,7 +59,6 @@ class OrderedViewController: UIViewController, UITableViewDataSource, UITableVie
     @objc func randomize() {
         let ranIndex = Int.random(in: 0..<orderedData.count)
         let randomized = orderedData[ranIndex]
-        print(randomized.name)
         let hour = self.cal.component(.hour, from: self.date)
         var meal : String!
         if hour >= 12 && hour <= 16 {
@@ -129,11 +127,10 @@ class OrderedViewController: UIViewController, UITableViewDataSource, UITableVie
             filterSelected = true
             ordTableView.reloadData()
             sender.isSelected = false
-            filterSelected = true
         } else {
+            ordTableView.reloadData()
             filterSelected = false
             sender.isSelected = true
-            ordTableView.reloadData()
         }
     }
 }
@@ -157,7 +154,7 @@ extension OrderedViewController {
         var r = rArr
         
         while l.count > 0 && r.count > 0 {
-            if l.first!.name <  r.first!.name {
+            if l.first!.name.lowercased() <  r.first!.name.lowercased() {
                 merged.append(l.removeFirst())
             } else {
                 merged.append(r.removeFirst())
@@ -166,7 +163,7 @@ extension OrderedViewController {
         return merged + l + r
     }
     
-    //quicksort
+//    quicksort
 //    func partitionArr(low: Int, high: Int) -> Int {
 //        let pivot = filterResult[low]
 //        var i = low

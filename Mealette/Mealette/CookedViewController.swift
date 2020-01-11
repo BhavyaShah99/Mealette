@@ -75,7 +75,6 @@ class CookedViewController: UIViewController, UITableViewDataSource, UITableView
         } else {
             let ranIndex = Int.random(in: 0..<self.cookedData.count)
             let randomized = cookedData[ranIndex]
-            print(randomized.name!)
             let hour = self.cal.component(.hour, from: self.date)
             var meal : String!
             if hour >= 12 && hour <= 16 {
@@ -145,11 +144,10 @@ class CookedViewController: UIViewController, UITableViewDataSource, UITableView
             filterSelected = true
             foodsTableView.reloadData()
             sender.isSelected = false
-            filterSelected = true
         } else {
             filterSelected = false
-            sender.isSelected = true
             foodsTableView.reloadData()
+            sender.isSelected = true
         }
     }
 }
@@ -171,13 +169,12 @@ extension CookedViewController {
         var r = rArr
         
         while l.count > 0 && r.count > 0 {
-            if l.first!.name <  r.first!.name {
+            if l.first!.name.lowercased() <  r.first!.name.lowercased() {
                 merged.append(l.removeFirst())
             } else {
                 merged.append(r.removeFirst())
             }
         }
-        
         return merged + l + r
     }
 }
