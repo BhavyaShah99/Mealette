@@ -32,6 +32,13 @@ class OrderedViewController: UIViewController, UITableViewDataSource, UITableVie
         orderedNavItem.leftBarButtonItem = UIBarButtonItem(title: "Choose meal!", style: .done, target: self, action: #selector(randomize))
         readOrdData()
         self.hideKeyboardWhenTappedAround()
+//        let i = [1,12,234,534,5]
+//        let j = Array(i.sorted().reversed())
+//        print(sqrt(2).rounded() as! Int)
+//        var k = 0
+//        for i in 0..<7 {
+//            ++k
+//        }
     }
     
     func readOrdData() {
