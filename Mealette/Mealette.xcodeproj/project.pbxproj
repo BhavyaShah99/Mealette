@@ -14,6 +14,8 @@
 		B62EB76123C2937800AA0C05 /* UpdateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62EB76023C2937800AA0C05 /* UpdateProfileViewController.swift */; };
 		B62EB76323C3281800AA0C05 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62EB76223C3281800AA0C05 /* FriendsViewController.swift */; };
 		B62EB76523C3287B00AA0C05 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62EB76423C3287B00AA0C05 /* MessagesViewController.swift */; };
+		B6531C8223E15977005759D8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6531C8123E15977005759D8 /* SettingsViewController.swift */; };
+		B6531C8423E15B8F005759D8 /* ProfileImgTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6531C8323E15B8F005759D8 /* ProfileImgTableViewCell.swift */; };
 		B6DCB4F423B1673700F8EDD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DCB4F323B1673700F8EDD9 /* AppDelegate.swift */; };
 		B6DCB4F623B1673700F8EDD9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DCB4F523B1673700F8EDD9 /* SceneDelegate.swift */; };
 		B6DCB4F823B1673700F8EDD9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DCB4F723B1673700F8EDD9 /* ViewController.swift */; };
@@ -29,7 +31,6 @@
 		B6DCB51623B1D9AC00F8EDD9 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DCB51523B1D9AC00F8EDD9 /* HomePageViewController.swift */; };
 		B6DCB51823B1DE4300F8EDD9 /* CookedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DCB51723B1DE4300F8EDD9 /* CookedViewController.swift */; };
 		B6DCB51A23B1DE5400F8EDD9 /* OrderedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DCB51923B1DE5400F8EDD9 /* OrderedViewController.swift */; };
-		B6DCB51E23B2C55300F8EDD9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DCB51D23B2C55300F8EDD9 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,8 @@
 		B62EB76023C2937800AA0C05 /* UpdateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewController.swift; sourceTree = "<group>"; };
 		B62EB76223C3281800AA0C05 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		B62EB76423C3287B00AA0C05 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		B6531C8123E15977005759D8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B6531C8323E15B8F005759D8 /* ProfileImgTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImgTableViewCell.swift; sourceTree = "<group>"; };
 		B6DCB4F023B1673700F8EDD9 /* Mealette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mealette.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6DCB4F323B1673700F8EDD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6DCB4F523B1673700F8EDD9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,7 +60,6 @@
 		B6DCB51523B1D9AC00F8EDD9 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		B6DCB51723B1DE4300F8EDD9 /* CookedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookedViewController.swift; sourceTree = "<group>"; };
 		B6DCB51923B1DE5400F8EDD9 /* OrderedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedViewController.swift; sourceTree = "<group>"; };
-		B6DCB51D23B2C55300F8EDD9 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		DF3E4B14FE4ABFCA88062220 /* Pods-Mealette.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mealette.debug.xcconfig"; path = "Target Support Files/Pods-Mealette/Pods-Mealette.debug.xcconfig"; sourceTree = "<group>"; };
 		DF9380E40DC92F68D415E517 /* Pods_Mealette.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mealette.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE0F9A4A97D0ED4C344F80C7 /* Pods-Mealette.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mealette.release.xcconfig"; path = "Target Support Files/Pods-Mealette/Pods-Mealette.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +93,45 @@
 			path = media;
 			sourceTree = "<group>";
 		};
+		B6531C7D23E134E1005759D8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B6DCB50D23B16EAD00F8EDD9 /* cooked.swift */,
+				B6DCB50B23B16EAD00F8EDD9 /* ordered.swift */,
+				B6DCB50C23B16EAD00F8EDD9 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B6531C7E23E134F4005759D8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B6DCB4F923B1673700F8EDD9 /* Main.storyboard */,
+				B6531C8323E15B8F005759D8 /* ProfileImgTableViewCell.swift */,
+				B6095A3823BBF5D900782FBB /* UIStyles.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B6531C8023E1350A005759D8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B6DCB4F723B1673700F8EDD9 /* ViewController.swift */,
+				B6DCB50923B1681C00F8EDD9 /* LogInViewController.swift */,
+				B6DCB50723B1679F00F8EDD9 /* SingUpViewController.swift */,
+				B6DCB51523B1D9AC00F8EDD9 /* HomePageViewController.swift */,
+				B6DCB51723B1DE4300F8EDD9 /* CookedViewController.swift */,
+				B6056A2723BBE8B800DF7DC1 /* AddCookedViewController.swift */,
+				B6DCB51923B1DE5400F8EDD9 /* OrderedViewController.swift */,
+				B6095A3A23BBF97500782FBB /* AddOrderedViewController.swift */,
+				B62EB76223C3281800AA0C05 /* FriendsViewController.swift */,
+				B62EB76423C3287B00AA0C05 /* MessagesViewController.swift */,
+				B62EB76023C2937800AA0C05 /* UpdateProfileViewController.swift */,
+				B6531C8123E15977005759D8 /* SettingsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		B6DCB4E723B1673700F8EDD9 = {
 			isa = PBXGroup;
 			children = (
@@ -112,26 +153,12 @@
 		B6DCB4F223B1673700F8EDD9 /* Mealette */ = {
 			isa = PBXGroup;
 			children = (
+				B6531C7D23E134E1005759D8 /* Model */,
+				B6531C7E23E134F4005759D8 /* View */,
+				B6531C8023E1350A005759D8 /* Controller */,
 				B6095A3C23BC84FA00782FBB /* media */,
 				B6DCB4F323B1673700F8EDD9 /* AppDelegate.swift */,
 				B6DCB4F523B1673700F8EDD9 /* SceneDelegate.swift */,
-				B6DCB4F923B1673700F8EDD9 /* Main.storyboard */,
-				B6DCB4F723B1673700F8EDD9 /* ViewController.swift */,
-				B6DCB50923B1681C00F8EDD9 /* LogInViewController.swift */,
-				B6DCB50723B1679F00F8EDD9 /* SingUpViewController.swift */,
-				B6DCB51523B1D9AC00F8EDD9 /* HomePageViewController.swift */,
-				B6DCB51723B1DE4300F8EDD9 /* CookedViewController.swift */,
-				B6056A2723BBE8B800DF7DC1 /* AddCookedViewController.swift */,
-				B6DCB51923B1DE5400F8EDD9 /* OrderedViewController.swift */,
-				B6095A3A23BBF97500782FBB /* AddOrderedViewController.swift */,
-				B62EB76223C3281800AA0C05 /* FriendsViewController.swift */,
-				B62EB76423C3287B00AA0C05 /* MessagesViewController.swift */,
-				B6DCB51D23B2C55300F8EDD9 /* SettingsViewController.swift */,
-				B62EB76023C2937800AA0C05 /* UpdateProfileViewController.swift */,
-				B6DCB50D23B16EAD00F8EDD9 /* cooked.swift */,
-				B6DCB50B23B16EAD00F8EDD9 /* ordered.swift */,
-				B6DCB50C23B16EAD00F8EDD9 /* User.swift */,
-				B6095A3823BBF5D900782FBB /* UIStyles.swift */,
 				B6DCB4FC23B1673800F8EDD9 /* Assets.xcassets */,
 				B6DCB4FE23B1673800F8EDD9 /* LaunchScreen.storyboard */,
 				B6DCB51323B1C6DC00F8EDD9 /* GoogleService-Info.plist */,
@@ -267,6 +294,7 @@
 			files = (
 				B6DCB4F823B1673700F8EDD9 /* ViewController.swift in Sources */,
 				B6DCB50E23B16EAD00F8EDD9 /* ordered.swift in Sources */,
+				B6531C8423E15B8F005759D8 /* ProfileImgTableViewCell.swift in Sources */,
 				B6DCB51623B1D9AC00F8EDD9 /* HomePageViewController.swift in Sources */,
 				B6DCB51823B1DE4300F8EDD9 /* CookedViewController.swift in Sources */,
 				B62EB76323C3281800AA0C05 /* FriendsViewController.swift in Sources */,
@@ -281,8 +309,8 @@
 				B6095A3923BBF5D900782FBB /* UIStyles.swift in Sources */,
 				B6DCB50F23B16EAD00F8EDD9 /* User.swift in Sources */,
 				B62EB76123C2937800AA0C05 /* UpdateProfileViewController.swift in Sources */,
-				B6DCB51E23B2C55300F8EDD9 /* SettingsViewController.swift in Sources */,
 				B6056A2823BBE8B800DF7DC1 /* AddCookedViewController.swift in Sources */,
+				B6531C8223E15977005759D8 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

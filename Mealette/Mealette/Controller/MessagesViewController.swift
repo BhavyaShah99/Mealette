@@ -1,11 +1,3 @@
-//
-//  MessagesViewController.swift
-//  Mealette
-//
-//  Created by Bhavya Shah on 2020-01-06.
-//  Copyright © 2020 Bhavya Shah. All rights reserved.
-//
-
 import UIKit
 
 class MessagesViewController: UIViewController {

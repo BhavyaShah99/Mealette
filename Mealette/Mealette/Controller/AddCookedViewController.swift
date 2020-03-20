@@ -1,11 +1,3 @@
-//
-//  AddCookedViewController.swift
-//  Mealette
-//
-//  Created by Bhavya Shah on 2019-12-31.
-//  Copyright © 2019 Bhavya Shah. All rights reserved.
-//
-
 import UIKit
 import FirebaseAuth
 import Firebase

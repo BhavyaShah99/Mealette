@@ -1,18 +1,10 @@
-//
-//  SingUpViewController.swift
-//  Mealette
-//
-//  Created by Bhavya Shah on 2019-12-23.
-//  Copyright © 2019 Bhavya Shah. All rights reserved.
-//
-
 import UIKit
 import CoreGraphics
 import FirebaseAuth
 import Firebase
 import FirebaseStorage
 
-class SingUpViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class SingUpViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet var username: UITextField!
     @IBOutlet var email: UITextField!
@@ -23,6 +15,7 @@ class SingUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet var signupbtn: UIButton!
     @IBOutlet var profileImageView: UIImageView!
     let seebtn = UIButton(type: .system)
+    let dietoptions = ["Vegetarian", "Non-Vegetarian", "Vegan", "Pescetarian", "Lacto-vegetarian", "Ovo-vegetarian"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,10 +33,13 @@ class SingUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         UIStyles.txtFieldStyling(txtField: password)
         UIStyles.txtFieldStyling(txtField: confpassword)
         UIStyles.styleBtn(btn: signupbtn, col: UIColor(red: 0.0471, green: 0.7569, blue: 0, alpha: 1.0).cgColor)
+        
        //Set up what happens when each field is tapped on
         profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(chooseProfileImage)))
         profileImageView.isUserInteractionEnabled = true
         profileImageView.layer.cornerRadius = 52.5
+        profileImageView.contentMode = .scaleAspectFill
+        
         signupbtn.backgroundColor = UIColor(red: 0.0471, green: 0.7569, blue: 0, alpha: 1.0)
         self.seebtn.setTitle("See", for: .normal)
         username.rightView = seebtn
@@ -53,6 +49,7 @@ class SingUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         dietarypref.clearButtonMode = .whileEditing
         password.clearButtonMode = .whileEditing
         confpassword.clearButtonMode = .whileEditing
+        
         //Set up keyboards return key properties for each field
         UIStyles.txtDelegateTag(txtField: username, tag: 0, view: self, retKeyType: .next)
         UIStyles.txtDelegateTag(txtField: email, tag: 1, view: self, retKeyType: .next)
@@ -60,6 +57,49 @@ class SingUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         UIStyles.txtDelegateTag(txtField: dietarypref, tag: 3, view: self, retKeyType: .next)
         UIStyles.txtDelegateTag(txtField: password, tag: 4, view: self, retKeyType: .next)
         UIStyles.txtDelegateTag(txtField: confpassword, tag: 5, view: self, retKeyType: .go)
+        
+        // set up the pickers
+        createPicker()
+        pickerViewToolBar()
+    }
+    
+    func createPicker(){
+        let dietPicker = UIPickerView()
+        dietPicker.delegate = self
+        dietPicker.dataSource = self
+        dietarypref.inputView = dietPicker
+    }
+    
+    func pickerViewToolBar() {
+        let bar = UIToolbar()
+        bar.sizeToFit()
+        let doneBtn = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(hidePicker))
+        bar.setItems([doneBtn], animated: false)
+        bar.isUserInteractionEnabled = true
+        dietarypref.inputAccessoryView = bar
+    }
+    
+    @objc func hidePicker() {
+        view.endEditing(true)
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        // return num of options
+        return dietoptions.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        // return options
+        return dietoptions[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // set txt field
+        dietarypref.text = dietoptions[row]
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -127,9 +167,8 @@ class SingUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         } else if password.text?.trimmingCharacters(in: .whitespacesAndNewlines) !=
             confpassword.text?.trimmingCharacters(in: .whitespacesAndNewlines) {
             return "Passwords don't match"
-        } else if dietarypref.text?.trimmingCharacters(in: .whitespacesAndNewlines) != "Veg" &&
-            dietarypref.text?.trimmingCharacters(in: .whitespacesAndNewlines) != "Non-Veg" {
-            return "Dietary restrictions must be either 'Veg'/'Non-Veg'"
+        } else if !dietoptions.contains(dietarypref.text!) {
+            return "Must pick a dietary prefrence from available options"
         }
         return nil
     }
@@ -174,7 +213,7 @@ class SingUpViewController: UIViewController, UIImagePickerControllerDelegate, U
                                 guard let url = url?.absoluteString else {
                                     return
                                 }
-                                let data = ["fullname":fname,"username":uname,"dietarypref":dpref,"email":em,"profpic":url, "friends":[]] as [String : Any]
+                                let data = ["fullname":fname,"username":uname,"dietarypref":dpref,"email":em,"profpic":url, "friends":[1]] as [String : Any]
                                 self.addUserData(userid: uid, dict: data as [String : AnyObject])
                             }
                         }

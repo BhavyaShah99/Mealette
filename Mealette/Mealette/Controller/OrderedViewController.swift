@@ -1,11 +1,3 @@
-//
-//  OrderedViewController.swift
-//  Mealette
-//
-//  Created by Bhavya Shah on 2019-12-23.
-//  Copyright © 2019 Bhavya Shah. All rights reserved.
-//
-
 import UIKit
 import FirebaseAuth
 import Firebase
@@ -32,13 +24,6 @@ class OrderedViewController: UIViewController, UITableViewDataSource, UITableVie
         orderedNavItem.leftBarButtonItem = UIBarButtonItem(title: "Choose meal!", style: .done, target: self, action: #selector(randomize))
         readOrdData()
         self.hideKeyboardWhenTappedAround()
-//        let i = [1,12,234,534,5]
-//        let j = Array(i.sorted().reversed())
-//        print(sqrt(2).rounded() as! Int)
-//        var k = 0
-//        for i in 0..<7 {
-//            ++k
-//        }
     }
     
     func readOrdData() {
@@ -169,33 +154,4 @@ extension OrderedViewController {
         }
         return merged + l + r
     }
-    
-//    quicksort
-//    func partitionArr(low: Int, high: Int) -> Int {
-//        let pivot = filterResult[low]
-//        var i = low
-//        var j = high
-//        while i < j {
-//            repeat {
-//                i += 1
-//                print(i)
-//            } while filterResult[i].name < pivot.name
-//            repeat {
-//                j -= 1
-//            } while filterResult[j].name > pivot.name
-//            if i < j {
-//                filterResult.swapAt(i, j)
-//            }
-//        }
-//        filterResult.swapAt(low, j)
-//        return j
-//    }
-//
-//    func quickSort(low: Int, high: Int) {
-//        if low < high {
-//            let j = partitionArr(low: low, high: high)
-//            quickSort(low: low, high: j)
-//            quickSort(low: j+1, high: high)
-//        }
-//    }
 }

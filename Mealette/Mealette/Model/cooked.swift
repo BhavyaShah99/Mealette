@@ -1,11 +1,3 @@
-//
-//  cooked.swift
-//  Mealette
-//
-//  Created by Bhavya Shah on 2019-12-22.
-//  Copyright © 2019 Bhavya Shah. All rights reserved.
-//
-
 import Foundation
 
 class cooked: NSObject {

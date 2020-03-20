@@ -1,11 +1,3 @@
-//
-//  UpdateProfileViewController.swift
-//  Mealette
-//
-//  Created by Bhavya Shah on 2020-01-05.
-//  Copyright © 2020 Bhavya Shah. All rights reserved.
-//
-
 import UIKit
 import FirebaseAuth
 import Firebase

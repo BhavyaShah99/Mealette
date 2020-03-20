@@ -1,8 +1,3 @@
-//  CookedViewController.swift
-//  Mealette
-//  Created by Bhavya Shah on 2019-12-23.
-//  Copyright © 2019 Bhavya Shah. All rights reserved.
-
 import UIKit
 import FirebaseAuth
 import Firebase
@@ -33,7 +28,7 @@ class CookedViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     override func viewDidAppear(_ animated: Bool) {
-//        readCookedData(cUser: currUser)
+        
     }
     
     func setupView() {

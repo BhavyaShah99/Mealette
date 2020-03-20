@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  Mealette
-//
-//  Created by Bhavya Shah on 2019-12-23.
-//  Copyright © 2019 Bhavya Shah. All rights reserved.
-//
-
 import UIKit
 import AVKit
 
